@@ -31,6 +31,8 @@ email-validator = "^1.1.2"
 
 ## (3) 프로젝트 구성도
 
+![UI wireframe](./img/UI wireframe.png)
+
 ## (4) 프로젝트 팀원 역할 분담
 
 개인 프로젝트입니다.
