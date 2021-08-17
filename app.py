@@ -1,6 +1,10 @@
 from flask import Flask
-app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return 'Hello, Python!'
+def create_app():
+    app = Flask(__name__)
+
+    @app.route('/')
+    def hello_pybo():
+        return 'Hello, Pybo!'
+
+    return app
