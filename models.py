@@ -1,4 +1,4 @@
-from db_connect import db
+from app import db # from LibraryService 
 from datetime import datetime
 
 class User(db.Model):
@@ -11,8 +11,8 @@ class User(db.Model):
         self.user_id = user_id
         self.user_pw = user_pw
 
-class Post(db.Model):
-    __tablename__ = 'post'
+class Book(db.Model):
+    __tablename__ = 'book'
     id = db.Column(db.Integer,  primary_key=True,nullable=False, autoincrement=True)
     author = db.Column(db.String(256), nullable=False)
     content = db.Column(db.Text(), nullable=False)

@@ -1,55 +1,13 @@
-{% extends 'base.html' %}
-{% block scripts %}
-<script>
-    function postContent() {
-        alert("post!")
-    }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML for python flask</title>
+</head>
 
-    function deletePost(id) {
-        alert("delete!")
-    }
-    function postUpdatePost(id) {
-        alert("update!")
-    }
-    function updatePost(id) {
-        alert("update!")
-    }
-</script>
-{% endblock %}
-
-{% block content %}
-<h2 class="title">Elice 타임라인</h2>
-<hr>
-<div class="card">
-    <h5 class="card-header">새 글 작성</h5>
-    <div class="card-body">
-        <div class="mb-3">
-            <label class="form-label">{{g.user.user_id}}님, 글을 작성하세요</label>
-            <textarea id='my-content' class="form-control" rows="3"></textarea>
-        </div>
-        <button class="btn btn-primary" onclick="postContent()">작성하기</button>
-    </div>
-</div>
-<hr>
-{% for post in post_list %}
-<div class="card mt-2">
-    <div class="card-body">
-        <div class="mb-3">
-            <label class="form-label">{{post.author}}</label>
-            <div id='edit-area'>
-                <p id='userContent{{post.id}}'>{{post.content}}</p>
-            </div>
-        </div>
-        {{post.created_at}}
-    </div>
-
-
-    <div class="card-footer text-muted">
-        <button class="btn btn-sm btn-warning" onclick="deletePost('{{post.id}}')">삭제하기</button>
-        <button id='editBtn{{post.id}}' class="btn btn-sm btn-success" onclick="updatePost('{{post.id}}')">수정하기</button>
-    </div>
-    
-</div>
-{% endfor %}
-
-{% endblock %}
+<body>
+        <p>로그인이 필요한 서비스입니다.</p>
+        <a href= "login">로그인창으로</a><br>
+        <a href= "register">회원가입</a>
+</body>
+</html>

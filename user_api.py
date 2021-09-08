@@ -1,13 +1,13 @@
-from flask import redirect, request, render_template, jsonify, Blueprint, session, g
-from models import User, Post
+from flask import Flask, redirect, request, render_template, jsonify, Blueprint, session, g
+from models import User, Book
 from db_connect import db
 from flask_bcrypt import Bcrypt
 
-board = Blueprint('board',__name__)
+user = Blueprint('user',__name__)
 bcrypt = Bcrypt()
 
 
-@board.before_app_request
+@user.before_app_request
 def load_logged_in_user():
     user_id = session.get("login")
     if login is None:
@@ -16,15 +16,8 @@ def load_logged_in_user():
         g.user = db.session.query(User).filter(User.id == user_id).first()
 
 
-@board.route("/")
-def home():
-    return render_template("base.html")
-    
-@board.route("/post", methods=["GET"])
-def post():
-    return render_template("index.html")
 
-@board.route("/join",methods=["GET","POST"])
+@user.route("/join",methods=["GET","POST"])
 def join():
     if request.method == 'GET':
         return render_template('join.html')
@@ -40,7 +33,7 @@ def join():
 
 
 
-@board.route("/login",methods=["GET","POST"])
+@user.route("/login",methods=["GET","POST"])
 def login():
     if request.method == 'GET':
         return render_template('login.html')
@@ -63,7 +56,7 @@ def login():
 
 
 
-@board.route("/logout")
+@user.route("/logout")
 def logout():
     session['login'] = None
     return redirect("/")
